@@ -36,7 +36,7 @@ latest_release() {
 ## arg1: prefix [default=""] (goto latest_release())
 find_connected_tasks() {
     prefix=${1:-""}
-    git log $( latest_release ${prefix} )..origin/master | grep -E '\w+\-[0-9]+' -o | sort -u | awk '{r=r " " $1; next} END {print substr(r,2,length(r))}'
+    git log --oneline $( latest_release ${prefix} )..origin/master | grep -E '\w+\-[0-9]+' -o | sort -u | awk '{r=r " " $1; next} END {print substr(r,2,length(r))}'
 }
  
 # add and push new tag
