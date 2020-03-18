@@ -7,7 +7,8 @@ Pieces of code and settings that make life more easier
 PS1='\[\e[00;35m\]\T\[\e[0m\]-${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]⚔ '
 ```
 results in
-[prompt_img.png](coloured prompt)
+
+![coloured prompt](prompt_img.png)
 
 ### include other files
 ```bash
