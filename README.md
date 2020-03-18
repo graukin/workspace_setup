@@ -23,6 +23,6 @@ done
 
 ## Additional files
 
-.bashrc_common - aliases and functions for comfort work on mostly any Linux
-.bashrc_svn - all for SVN
-.bashrc_git - all for Git
+* .bashrc_common - aliases and functions for comfort work on mostly any Linux
+* .bashrc_svn - all for SVN
+* .bashrc_git - all for Git
