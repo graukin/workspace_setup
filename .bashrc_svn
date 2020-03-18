@@ -1,0 +1,14 @@
+# show only changes in current directory and it's subdirectories
+alias ss='svn status | awk '\''$1 !~ /\?/'\'''
+ 
+# same stuff but as function and work with any directory
+ssf()
+{
+    svn status "$@" | awk '\''$1 !~ /\?/'\'''
+}
+ 
+# coloured svn diff
+sd() {
+    svn diff "$@" | colordiff | less -R
+}
+
