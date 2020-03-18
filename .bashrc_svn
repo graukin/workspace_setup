@@ -12,3 +12,6 @@ sd() {
     svn diff "$@" | colordiff | less -R
 }
 
+sl4() {
+    svn log -l4 "$@"
+}
