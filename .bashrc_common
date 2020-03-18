@@ -1,0 +1,78 @@
+### ALIASES
+
+# enable color support of ls and also add handy aliases
+# usually is defined in .bashrc
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# aliases for mistyping
+alias gerp='grep'
+alias vf='cd'
+
+
+### FUNCTIONS
+
+# grep substring in crontab and in cron demon
+# arg1: string to grep
+crongrep() {
+    echo " ---"
+    echo "cron.d:"
+    grep "$@" ${CROND_PATH}/*
+    echo " ---"
+    echo "crontab:"
+    crontab -l | grep "$@"
+}
+
+# cleanup everything after apt
+apt_clenup()
+{
+    echo "Clean packages"
+    sudo apt-get -yq autoremove
+    sudo apt-get -yq autoclean
+}
+
+# drop data of old kernels if it is not done yet (help to free space in root mount)
+remove_old_kernels() 
+{
+    echo "Current kernel: `uname -r`"
+    list=$( dpkg --list | grep linux-image | awk '{ print $2 }' | sort -V | sed -n '/'`uname -r`'/q;p' )
+    list_length=$( wc -w <<< "$list" )
+    if [ "$list_length" -gt 0 ]
+    then
+        echo "Try to remove next kernels:"
+        echo $list
+        read  -n 1 -p "Try to purge them (operation cannot be undone)? [y/n]:" inp
+        echo ""
+        if [ "$inp" == "y" ] || [ "$inp" == "Y" ]
+        then
+            echo "Start purge"
+            for kernel_name in $list
+            do
+                echo $kernel_name
+                sudo apt-get -y purge $kernel_name
+            done
+        else
+            echo "A no is a no. Bye."
+        fi
+    else
+        echo "There is no old kernels"
+    fi
+}
+
+# generate password
+# arg1: length [default=16]
+genpass() {
+    pass_length=${1:-16}
+
+    cat /dev/urandom | tr -c -d '[:alnum:]' | head -c $pass_length; echo
+}
