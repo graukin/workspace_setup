@@ -26,6 +26,9 @@ alias ~='cd ~'
 # create all chain
 alias mkdir='mkdir -p'
 
+# colorfull diff
+alias diff="diff --color -u"
+
 ### FUNCTIONS
 
 # grep substring in crontab and in cron demon
