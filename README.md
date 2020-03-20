@@ -10,6 +10,11 @@ results in
 
 ![coloured prompt](prompt_img.png)
 
+### Define variables in .bashrc
+
+* CROND_PATH - path to file for cron demon. There would crongrep go
+* MAIN_LOGIN - login that is used in ssh and in other services
+
 ### include other files
 ```bash
 for type in common git svn
