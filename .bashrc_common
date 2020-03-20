@@ -37,7 +37,7 @@ alias sshl='ssh -l ${MAIN_LOGIN}'
 ## alias precious='sshl my.precious.server'
 ## alias another='ssh -l another.login my.another.server'
 ## alias idserv='ssh -i identity_file file.prot.server'
-## you get an idea
+# you get it
 
 ### FUNCTIONS
 
