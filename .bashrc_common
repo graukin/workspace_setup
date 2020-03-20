@@ -39,6 +39,9 @@ alias sshl='ssh -l ${MAIN_LOGIN}'
 ## alias idserv='ssh -i identity_file file.prot.server'
 # you get it
 
+# ps
+alias psx='ps auxf'
+
 ### FUNCTIONS
 
 # grep substring in crontab and in cron demon
