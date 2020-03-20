@@ -19,6 +19,9 @@ alias l='ls -CF'
 alias gerp='grep'
 alias vf='cd'
 
+# comfort work with cd
+alias ..='cd ..'
+alias ~='cd ~'
 
 ### FUNCTIONS
 
