@@ -42,6 +42,9 @@ alias sshl='ssh -l ${MAIN_LOGIN}'
 # ps
 alias psx='ps auxf'
 
+# history | grep
+alias hist='history | grep'
+
 ### FUNCTIONS
 
 # grep substring in crontab and in cron demon
