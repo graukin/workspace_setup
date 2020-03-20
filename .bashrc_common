@@ -23,6 +23,9 @@ alias vf='cd'
 alias ..='cd ..'
 alias ~='cd ~'
 
+# create all chain
+alias mkdir='mkdir -p'
+
 ### FUNCTIONS
 
 # grep substring in crontab and in cron demon
