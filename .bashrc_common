@@ -79,3 +79,26 @@ genpass() {
 
     cat /dev/urandom | tr -c -d '[:alnum:]' | head -c $pass_length; echo
 }
+
+# "alert" for long running commands.  Use like so:
+#   alert sleep 10
+#   alert "ls -la; sleep 10"
+alert() {
+    msg=$@
+    dt=`date +%H:%M:%S`
+    eval ${msg[@]}
+    code=$?
+    if [ $code == 0 ]
+    then
+        pop_alert "SUCCESS" "$dt $msg"
+    else
+        pop_alert "FAIL" "$dt $msg"
+    fi
+}
+
+# stuff for alert()
+# you may use it searately, just know that notify-send on the most platforms use 1st arg as window's title and may not show it (that's why it is simply "alert" word there
+pop_alert() {
+    notify-send --urgency=low -i "alert" "$@"
+}
+
