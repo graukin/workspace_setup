@@ -29,6 +29,16 @@ alias mkdir='mkdir -p'
 # colorfull diff
 alias diff="diff --color -u"
 
+# ssh
+alias sshl='ssh -l ${MAIN_LOGIN}'
+
+# here you may add aliases for ssh on particular servers with given login
+## e.g.
+## alias precious='sshl my.precious.server'
+## alias another='ssh -l another.login my.another.server'
+## alias idserv='ssh -i identity_file file.prot.server'
+## you get an idea
+
 ### FUNCTIONS
 
 # grep substring in crontab and in cron demon
