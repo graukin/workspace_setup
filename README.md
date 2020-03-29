@@ -31,3 +31,4 @@ done
 * .bashrc_common - aliases and functions for comfort work on mostly any Linux
 * .bashrc_svn - all for SVN
 * .bashrc_git - all for Git
+* .vimrc - config for Vim
