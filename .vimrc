@@ -8,11 +8,14 @@ set expandtab
 
 " work with long lines
 set wrap
+" indent them
+set breakindent
+set breakindentopt=shift:2
 
 " lazy screen update
 set lz
 
-" set linenumber
+" set grey linenumbers
 set nu
 highlight LineNr ctermfg=grey
 
@@ -29,4 +32,7 @@ set hlsearch
 
 " match brackets
 set showmatch
+
+" syntax highlighting
+syntax enable
 
