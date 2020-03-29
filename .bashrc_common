@@ -39,13 +39,21 @@ alias sshl='ssh -l ${MAIN_LOGIN}'
 ## alias idserv='ssh -i identity_file file.prot.server'
 # you get it
 
-# ps
-alias psx='ps auxf'
-
 # history | grep
 alias hist='history | grep'
 
 ### FUNCTIONS
+
+# `ps auxf | grep ${args}` or just `ps auxf` if there is no args
+## arg1 [optional]: argument for grep
+psx() {
+    if [ $# -eq 0 ]
+    then
+        ps auxf
+    else
+        ps auxf | grep "$@"
+    fi
+}
 
 # grep substring in crontab and in cron demon
 # arg1: string to grep
