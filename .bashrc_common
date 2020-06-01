@@ -55,6 +55,20 @@ psx() {
     fi
 }
 
+# head & tail. Usage:
+#   hetail ./filname
+# or
+#   stream | hetail
+## arg1 [optional]: filename
+hetail() {
+    if [ $# -eq 0 ]
+    then
+        ( sed -u 10q ; echo "-----" ; tail )
+    else
+        ( head ; echo "-----"; tail ) < $1
+    fi
+}
+
 # grep substring in crontab and in cron demon
 # arg1: string to grep
 crongrep() {
